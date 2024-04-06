@@ -1,5 +1,5 @@
 {
-  description = "flake";
+  description = "Configuration of NixOs system with flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -17,10 +17,10 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
-    nixosConfigurations.hulewicz = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-	./configuration.nix
+	./hosts/default/configuration.nix
 	inputs.home-manager.nixosModules.default
       ];
     };
