@@ -103,6 +103,13 @@
     ];
   };
 
+  home-manager = {
+    extraSpecialArgs = {inherit inputs; };
+    users = {
+      "hulewicz" = import ./home.nix;
+    };
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
