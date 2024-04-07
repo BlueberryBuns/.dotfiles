@@ -89,15 +89,17 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.hulewicz = {
-    isNormalUser = true;
-    description = "hulewicz";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-    ];
-  };
+  user.enable = true;
+  user.username = "hulewicz";
+  #users.users.hulewicz = {
+  #  isNormalUser = true;
+  #  description = "hulewicz";
+  #  extraGroups = [ "networkmanager" "wheel" ];
+  #  packages = with pkgs; [
+  #    firefox
+  #  #  thunderbird
+  #  ];
+  #};
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
@@ -144,5 +146,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
