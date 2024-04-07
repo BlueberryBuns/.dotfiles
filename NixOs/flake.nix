@@ -26,5 +26,16 @@
 	inputs.home-manager.nixosModules.default
       ];
     };
+
+    nixosConfigurations.hulewicz-pc = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/hulewicz-pc/configuration.nix
+	./modules/nixos
+	./modules/home-manager
+	inputs.home-manager.nixosModules.hulewicz
+      ];
+    };
+
   };
 }

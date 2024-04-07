@@ -11,7 +11,7 @@
   config = lib.mkIf config.openrgb.enable {
     services.hardware.openrgb = {
       enable = true;
-      motherboard = ${config.openrgb.motherboard};
+      motherboard = config.openrgb.motherboard;
     };
   };
 }

@@ -3,7 +3,7 @@
 {
   # Bluetooth
   options = {
-    bluetooth.enable = lib.mkEnableOption "enable bluetooth"
+    bluetooth.enable = lib.mkEnableOption "enable bluetooth";
   };
 
   config = lib.mkIf config.bluetooth.enable {
