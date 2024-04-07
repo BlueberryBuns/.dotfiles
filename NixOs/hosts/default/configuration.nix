@@ -8,15 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./main-user.nix
       inputs.home-manager.nixosModules.default
     ];
 
   # Nix flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  main-user.enable = true;
-  main-user.username = "zajonc";
 
   programs.zsh.enable = true;
 
