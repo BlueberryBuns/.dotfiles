@@ -91,15 +91,6 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   user.enable = true;
   user.username = "hulewicz";
-  #users.users.hulewicz = {
-  #  isNormalUser = true;
-  #  description = "hulewicz";
-  #  extraGroups = [ "networkmanager" "wheel" ];
-  #  packages = with pkgs; [
-  #    firefox
-  #  #  thunderbird
-  #  ];
-  #};
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
