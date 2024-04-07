@@ -33,7 +33,7 @@
         ./hosts/hulewicz-pc/configuration.nix
 	./modules/nixos
 	./modules/home-manager
-	inputs.home-manager.nixosModules.hulewicz
+	inputs.home-manager.nixosModules.default
       ];
     };
 
