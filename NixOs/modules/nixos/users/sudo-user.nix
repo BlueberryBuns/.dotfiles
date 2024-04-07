@@ -1,6 +1,6 @@
 {pkgs, config, lib, ...}:
 let
-  cfg = config = config.user;
+  cfg = config.user;
 in
 {
   options.user = {
@@ -18,15 +18,15 @@ in
     };
 
     uid = lib.mkOption {
-      uid = 1000;
-    }
+      default = 1000;
+    };
 
   };
 
   config = lib.mkIf cfg.enable {
     users.users.${cfg.username} = {
       isNormalUser = true;
-      initialPassword = cfg.initialPassword;
+      initialPassword = cfg.defaultPassword;
       shell = cfg.shell;
       extraGroups = [ "networkmanager" "wheel" ]; # we can add "inpu" and "dial", but I dont need them
       uid = cfg.uid;
