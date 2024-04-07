@@ -3,7 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, ... }:
-
+let
+  usr = "hulewicz";
+  private-email = "hulewicz.k@gmail.com";
+  private-git-user = "blueberry.buns";
+  work-email = "kamil.hulewicz@peakdata.com";
+  work-git-user = "Kamil Hulewicz";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -16,12 +22,12 @@
 
   programs.zsh.enable = true;
 
-  # Bootloader.
+  # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = usr; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -90,12 +96,15 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   user.enable = true;
-  user.username = "hulewicz";
+  user.username = usr;
+
+  docker.enable = true;
+  docker.username = usr;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
     users = {
-      "hulewicz" = import ./home.nix;
+      "${usr}" = import ./home.nix;
     };
   };
 
@@ -105,10 +114,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  wget
-  git
-  neovim
+   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+   wget
+   git
+   neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
