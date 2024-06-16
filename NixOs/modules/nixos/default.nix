@@ -19,6 +19,6 @@
   openrgb.enable = lib.mkDefault true;
 
   # docker-podman.enable = lib.mkDefault true;
-  docker.enable = lib.mkDefault true;
-  user.enable = lib.mkDefault true;
+  docker.enable = lib.mkDefault false;
+  user.enable = lib.mkDefault false;
 }

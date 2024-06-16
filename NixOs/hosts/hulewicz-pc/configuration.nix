@@ -28,7 +28,6 @@ in
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = usr; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -97,9 +96,6 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   user.enable = true;
   user.username = usr;
-
-  docker.enable = true;
-  docker.username = usr;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
