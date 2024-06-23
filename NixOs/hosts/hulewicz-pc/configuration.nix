@@ -110,10 +110,16 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    wget
    git
    neovim
+   ripgrep
+   tree
+   firefox
+   
+   # Development
+   lua python312 python310 elixir_1_16
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
