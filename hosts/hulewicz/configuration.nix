@@ -125,6 +125,9 @@
     erlang_27
     elixir
     elixir-ls
+    slack
+    dunst
+    (discord.override { withOpenASAR = true; })
   ];
 
   programs.openvpn3.enable = true;

@@ -28,12 +28,12 @@
       unzip # zip extraction
       wget # downloader
       zip
-
+      zinit
       # =========== FONTS ===========
       noto-fonts
       nerdfonts # loads the complete collection. look into overide for FiraMono or potentially mononoki
       meslo-lgs-nf
-
+      go
   ];
 
   home.file = {
@@ -63,7 +63,7 @@
       "ctrl+c" = "copy_or_interrupt";
       "ctrl+v" = "paste_from_clipboard";
     };
-    #theme = "";
+    # theme = "";
 
     extraConfig = ''
 #: Cursor customization {{{
@@ -113,7 +113,7 @@ cursor_stop_blinking_after 15.0
     config = {
       # Show line numbers, Git modifications and file header (but no grid)
       style = "numbers,changes,header";
-      theme = "gruvbox-dark";
+      theme = "catppuccin";
     };
     extraPackages = builtins.attrValues {
       inherit (pkgs.bat-extras)
@@ -161,53 +161,8 @@ cursor_stop_blinking_after 15.0
       #      bindkey '^[[Z' backward-word      # shift+tab
       #      bindkey '^ ' autosuggest-accept   # ctrl+space
     '';
-
-    oh-my-zsh = {
-      enable = true;
-      # Standard OMZ plugins pre-installed to $ZSH/plugins/
-      # Custom OMZ plugins are added to $ZSH_CUSTOM/plugins/
-      # Enabling too many plugins will slowdown shell startup
-      plugins = [
-        "git"
-        "sudo" # press Esc twice to get the previous command prefixed with sudo https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo
-      ];
-      extraConfig = ''
-        # Display red dots whilst waiting for completion.
-        COMPLETION_WAITING_DOTS="true"
-      '';
-    };
-
-    shellAliases = {
-      # Overrides those provided by OMZ libs, plugins, and themes.
-      # For a full list of active aliases, run `alias`.
-
-      #-------------Bat related------------
-      cat = "bat";
-      diff = "batdiff";
-      rg = "batgrep";
-      man = "batman";
-
-      #------------Navigation------------
-      l = "eza -lah";
-      la = "eza -lah";
-      ll = "eza -lh";
-      ls = "eza";
-      lsa = "eza -lah";
-
-      #-------------Neovim---------------
-      e = "nvim";
-      vi = "nvim";
-      vim = "nvim";
-
-      #-----------Nix related----------------
-      ne = "nix-instantiate --eval";
-      nb = "nix-build";
-      ns = "nix-shell";
-
-      #-------------Git Goodness-------------
-      # just reference `$ alias` and use the defautls, they're good.
-    };
   };
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -216,6 +171,89 @@ cursor_stop_blinking_after 15.0
       vscodevim.vim
       yzhang.markdown-all-in-one
     ];
+  };
+
+  programs.oh-my-posh = {
+    enable = true;
+    settings = {
+    blocks = [
+        {
+          type = "prompt";
+          alignment = "left";
+          newline = true;
+          segments = [
+            {
+              type = "path";
+              style = "plain";
+              background = "transparent";
+              foreground = "blue";
+              template = "{{ .Path }}";
+              properties = {
+                style = "full";
+              };
+            }
+            {
+              type = "git";
+              style = "plain";
+              foreground = "p:grey";
+              background = "transparent";
+              template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
+              properties = {
+                branch_icon = "";
+                commit_icon = "@";
+                fetch_status = true;
+              };
+            }
+          ];
+        }
+        {
+          type = "rprompt";
+          overflow = "hidden";
+          segments = [
+            {
+              type = "executiontime";
+              style = "plain";
+              foreground = "yellow";
+              background = "transparent";
+              template = "{{ .FormattedMs }}";
+              properties = {
+                threshold = 5000;
+              };
+            }
+          ];
+        }
+        {
+          type = "prompt";
+          alignment = "left";
+          newline = true;
+          segments = [
+            {
+              type = "text";
+              style = "plain";
+              foreground_templates = [
+                "{{if gt .Code 0}}red{{end}}"
+                "{{if eq .Code 0}}magenta{{end}}"
+              ];
+              background = "transparent";
+              template = "❯";
+            }
+          ];
+        }
+      ];
+      transient_prompt = {
+        foreground_templates = [
+          "{{if gt .Code 0}}red{{end}}"
+          "{{if eq .Code 0}}magenta{{end}}"
+        ];
+        background = "transparent";
+        template = "❯ ";
+      };
+      secondary_prompt = {
+        foreground = "magenta";
+        background = "transparent";
+        template = "❯❯ ";
+      };
+    };
   };
 
   programs.home-manager.enable = true;
