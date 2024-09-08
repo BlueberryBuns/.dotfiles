@@ -15,6 +15,7 @@
       findutils # find
       fzf # fuzzy search
       jq # JSON pretty printer and manipulator
+      keepassxc
       nix-tree # nix package tree viewer
       ncdu # TUI disk usage
       pciutils
@@ -52,7 +53,7 @@
     font = {
       #package = "";
       name = "notosansmono";
-      size = 9;
+      size = 12;
     };
 
     settings = {
@@ -123,5 +124,99 @@ cursor_stop_blinking_after 15.0
         ; # read manpages using bat as the formatter
     };
   };
+
+  # =================== ZSH
+  programs.zsh = {
+    enable = true;
+
+    # relative to ~
+    dotDir = ".config/zsh";
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+    autocd = true;
+    autosuggestion.enable = true;
+    history.size = 10000;
+    history.share = true;
+
+    plugins = [
+    ];
+
+    initExtra = ''
+      # autoSuggestions config
+
+      unsetopt correct # autocorrect commands
+
+      setopt hist_ignore_all_dups # remove older duplicate entries from history
+      setopt hist_reduce_blanks # remove superfluous blanks from history items
+      setopt inc_append_history # save history entries as soon as they are entered
+
+      # auto complete options
+      setopt auto_list # automatically list choices on ambiguous completion
+      setopt auto_menu # automatically use menu completion
+      zstyle ':completion:*' menu select # select completions with arrow keys
+      zstyle ':completion:*' group-name "" # group results by category
+      zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
+
+      #      bindkey '^I' forward-word         # tab
+      #      bindkey '^[[Z' backward-word      # shift+tab
+      #      bindkey '^ ' autosuggest-accept   # ctrl+space
+    '';
+
+    oh-my-zsh = {
+      enable = true;
+      # Standard OMZ plugins pre-installed to $ZSH/plugins/
+      # Custom OMZ plugins are added to $ZSH_CUSTOM/plugins/
+      # Enabling too many plugins will slowdown shell startup
+      plugins = [
+        "git"
+        "sudo" # press Esc twice to get the previous command prefixed with sudo https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo
+      ];
+      extraConfig = ''
+        # Display red dots whilst waiting for completion.
+        COMPLETION_WAITING_DOTS="true"
+      '';
+    };
+
+    shellAliases = {
+      # Overrides those provided by OMZ libs, plugins, and themes.
+      # For a full list of active aliases, run `alias`.
+
+      #-------------Bat related------------
+      cat = "bat";
+      diff = "batdiff";
+      rg = "batgrep";
+      man = "batman";
+
+      #------------Navigation------------
+      l = "eza -lah";
+      la = "eza -lah";
+      ll = "eza -lh";
+      ls = "eza";
+      lsa = "eza -lah";
+
+      #-------------Neovim---------------
+      e = "nvim";
+      vi = "nvim";
+      vim = "nvim";
+
+      #-----------Nix related----------------
+      ne = "nix-instantiate --eval";
+      nb = "nix-build";
+      ns = "nix-shell";
+
+      #-------------Git Goodness-------------
+      # just reference `$ alias` and use the defautls, they're good.
+    };
+  };
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      dracula-theme.theme-dracula
+      vscodevim.vim
+      yzhang.markdown-all-in-one
+    ];
+  };
+
   programs.home-manager.enable = true;
 }

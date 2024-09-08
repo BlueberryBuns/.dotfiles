@@ -13,6 +13,9 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   programs.zsh.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  nixpkgs.config.virtualbox.host.enableExtensionPack = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -116,8 +119,16 @@
     wget
     neovim
     git
+    python310
+    python311
+    python312
+    erlang_27
+    elixir
+    elixir-ls
   ];
 
+  programs.openvpn3.enable = true;
+  users.users.hulewicz.shell = pkgs.zsh;
   hardware.opengl = {
     enable = true;
   };
