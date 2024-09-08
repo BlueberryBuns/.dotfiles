@@ -34,7 +34,7 @@
       meslo-lgs-nf
       go
   ];
-:
+
   home.file = {
 
   };
