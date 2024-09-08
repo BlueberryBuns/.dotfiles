@@ -28,14 +28,13 @@
       unzip # zip extraction
       wget # downloader
       zip
-      zinit
       # =========== FONTS ===========
       noto-fonts
       nerdfonts # loads the complete collection. look into overide for FiraMono or potentially mononoki
       meslo-lgs-nf
       go
   ];
-
+:
   home.file = {
 
   };
@@ -52,6 +51,7 @@
 
     font = {
       #package = "";
+      # name = "JetBrainsMono NF Regular";
       name = "notosansmono";
       size = 12;
     };
@@ -139,6 +139,11 @@ cursor_stop_blinking_after 15.0
     history.share = true;
 
     plugins = [
+      {
+        name = "zinit";
+	src = pkgs.zinit;
+	file = "share/zinit/zinit.zsh";
+      }
     ];
 
     initExtra = ''
@@ -167,7 +172,6 @@ cursor_stop_blinking_after 15.0
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
       vscodevim.vim
       yzhang.markdown-all-in-one
     ];
@@ -176,7 +180,10 @@ cursor_stop_blinking_after 15.0
   programs.oh-my-posh = {
     enable = true;
     settings = {
-    blocks = [
+     version = 2;
+     final_space = true;
+     console_title_template = "{{ .Shell }} in {{ .Folder }}";
+     blocks = [
         {
           type = "prompt";
           alignment = "left";
