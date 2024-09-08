@@ -85,7 +85,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
   home-manager = {
-    extraSpecialArgs = {inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs; };
     users = {
       "hulewicz" = import ./home.nix;
     };
