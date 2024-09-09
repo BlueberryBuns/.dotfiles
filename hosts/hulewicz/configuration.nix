@@ -14,7 +14,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   programs.zsh.enable = true;
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
   nixpkgs.config.virtualbox.host.enableExtensionPack = true;
 
   # Bootloader.
@@ -54,7 +53,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
+  # services.xserver.displayManager.gdm.wayland = false;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -72,6 +71,8 @@
     url = "https://4kwallpapers.com/images/wallpapers/porsche-911-turbo-s-black-background-amoled-pitch-black-3840x2880-7730.jpg";
     sha256 = "34943981f01dca2a15fa2b9b4bbede14349c63137047fd3f26ffe9171fccddac";
   };
+  stylix.cursor.package = pkgs.bibata-cursors;
+  stylix.cursor.name = "Bibata-Modern-Ice";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
