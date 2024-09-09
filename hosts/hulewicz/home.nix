@@ -139,6 +139,11 @@ cursor_stop_blinking_after 15.0
     history.share = true;
 
     plugins = [
+      {
+        name = "zinit";
+	src = pkgs.zinit;
+	file = "share/zinit/zinit.zsh";
+      }
     ];
 
     initExtra = ''
@@ -176,6 +181,9 @@ cursor_stop_blinking_after 15.0
   programs.oh-my-posh = {
     enable = true;
     settings = {
+    version = 2;
+    final_space = true;
+    console_title_template = "{{ .Shell }} in {{ .Folder }}";
     blocks = [
         {
           type = "prompt";
