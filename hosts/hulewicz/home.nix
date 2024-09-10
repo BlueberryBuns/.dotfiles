@@ -50,11 +50,11 @@
     enable = true;
     shellIntegration.enableZshIntegration = true;
 
-    font = {
+    #font = {
       #package = "";
-      name = "notosansmono";
-      size = 12;
-    };
+    #  name = "notosansmono";
+    #  size = 12;
+    #};
 
     settings = {
        scrollback_lines = 10000;
@@ -113,7 +113,7 @@ cursor_stop_blinking_after 15.0
     config = {
       # Show line numbers, Git modifications and file header (but no grid)
       style = "numbers,changes,header";
-      theme = "catppuccin";
+      # theme = "catppuccin";
     };
     extraPackages = builtins.attrValues {
       inherit (pkgs.bat-extras)
@@ -171,11 +171,6 @@ cursor_stop_blinking_after 15.0
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      vscodevim.vim
-      yzhang.markdown-all-in-one
-    ];
   };
 
   programs.oh-my-posh = {
