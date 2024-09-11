@@ -103,7 +103,10 @@
   };  
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  sops.secrets.user-password.neededForUsers = true;
+  users.mutableUsers = false;
   users.users.hulewicz = {
+    hashedPasswordFile = config.sops.secrets.user-password.path;
     isNormalUser = true;
     description = "hulewicz";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -178,6 +181,20 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  # sops
+  sops = {
+    defaultSopsFile = ../../secrets/secrets.yaml; 
+    validateSopsFiles = false;
+
+
+    age = {
+      sshKeyPaths = [ "/home/hulewicz/.ssh/id_ed25519" ];
+      keyFile = "/home/hulewicz/.config/sops/age/keys.txt";
+      generateKey = true;
+    };
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
