@@ -30,7 +30,7 @@
         ./hosts/hulewicz/configuration.nix
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
-	inputs.sops-nix.nixosModules.sops
+	      inputs.sops-nix.nixosModules.sops
       ];
     };
  };

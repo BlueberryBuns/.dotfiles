@@ -103,17 +103,17 @@
   };  
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  sops.secrets.user-password.neededForUsers = true;
-  users.mutableUsers = false;
-  users.users.hulewicz = {
-    hashedPasswordFile = config.sops.secrets.user-password.path;
-    isNormalUser = true;
-    description = "hulewicz";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird  
-    ];
-  };
+  # sops.secrets.user-password.neededForUsers = true;
+  # users.mutableUsers = false;
+  # users.users.hulewicz = {
+  #   hashedPasswordFile = config.sops.secrets.user-password.path;
+  #   isNormalUser = true;
+  #   description = "hulewicz";
+  #   extraGroups = [ "networkmanager" "wheel" ];
+  #   packages = with pkgs; [
+  #   #  thunderbird  
+  #   ];
+  # };
 
   # Install firefox.
   programs.firefox.enable = true;
