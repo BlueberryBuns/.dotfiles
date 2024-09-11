@@ -4,10 +4,17 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     stylix.url = "github:danth/stylix/release-24.05";
+    
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     
   };
 
@@ -23,6 +30,7 @@
         ./hosts/hulewicz/configuration.nix
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
+	inputs.sops-nix.nixosModules.sops
       ];
     };
  };
