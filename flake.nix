@@ -20,14 +20,28 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
   let
+    inherit (self) outputs;
+    inherit (nixpkgs) lib;
+    configVars = import ./vars { inherit inputs lib; };
+    configLib = import ./lib { inherit lib; };
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    specialArgs = {
+      username = "hulewicz";
+      inherit 
+        inputs
+        outputs
+        configVars
+        configLib
+        nixpkgs;
+    };
   in
   {
-    nixosConfigurations.hulewicz = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+    nixosConfigurations.fractal = lib.nixosSystem {
+      inherit specialArgs;
+
       modules = [
-        ./hosts/hulewicz/configuration.nix
+        ./hosts/fractal
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
 	inputs.sops-nix.nixosModules.sops
