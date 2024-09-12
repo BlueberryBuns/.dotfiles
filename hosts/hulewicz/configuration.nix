@@ -188,20 +188,20 @@
     validateSopsFiles = false;
 
     secrets = {
-      "${username}/user-password" = {
+      "user-password" = {
         sopsFile = ../../secrets/${username}-secrets.yaml;
 	format = "yaml";
       };
 
-      "${username}/root-password" = {
+      "root-password" = {
         sopsFile = ../../secrets/${username}-secrets.yaml;
 	format = "yaml";
       };
     };
 
     age = {
-      sshKeyPaths = [ "/home/hulewicz/.ssh/id_ed25519" ];
-      keyFile = "/home/hulewicz/.config/sops/age/keys.txt";
+      sshKeyPaths = [ "/home/${username}/.ssh/id_ed25519" ];
+      keyFile = "/home/${username}/.config/sops/age/keys.txt";
       generateKey = true;
     };
   };

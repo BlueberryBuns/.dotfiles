@@ -4,7 +4,7 @@
   users.users.${username} = {
     shell = pkgs.zsh;
     isNormalUser = true;
-    hashedPasswordFile = config.sops.secrets."${username}/user-password".path;
+    hashedPasswordFile = config.sops.secrets.user-password.path;
     extraGroups = [ "wheel" "input" "video" "render" ];
   };
 
@@ -15,11 +15,11 @@
   };
 
   sops.secrets = {
-    "${username}/user-password" = {
+    "user-password" = {
       neededForUsers = true;
     };
 
-    "${username}/root-password" = {
+    "root-password" = {
       neededForUsers = true;
     };
   };
