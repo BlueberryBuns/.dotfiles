@@ -6,3 +6,7 @@ creation_rules:
     key_groups:
     - age:
       - *hulewicz
+  - path_regex: secrets/hulewicz-secrets.yaml$
+    key_groups:
+    - age:
+      - *hulewicz
