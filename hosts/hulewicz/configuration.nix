@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, username, ... }:
 
 {
   imports =
@@ -187,6 +187,17 @@
     defaultSopsFile = ../../secrets/secrets.yaml; 
     validateSopsFiles = false;
 
+    secrets = {
+      "${username}/user-password" = {
+        sopsFile = ../../secrets/${username}-secrets.yaml;
+	format = "yaml";
+      };
+
+      "${username}/root-password" = {
+        sopsFile = ../../secrets/${username}-secrets.yaml;
+	format = "yaml";
+      };
+    };
 
     age = {
       sshKeyPaths = [ "/home/hulewicz/.ssh/id_ed25519" ];

@@ -2,6 +2,10 @@ keys:
   - &users:
     - &hulewicz age13cx50apqfu2najdny09sgz029lhgqtyr7ntx5kchqeklkrtsn5lq65h4r3
 creation_rules:
+  - path_regex: secrets/hulewicz-secrets.yaml$
+    key_groups:
+    - age:
+      - *hulewicz
   - path_regex: secrets/secrets.yaml$
     key_groups:
     - age:

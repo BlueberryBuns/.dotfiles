@@ -25,12 +25,12 @@
   in
   {
     nixosConfigurations.hulewicz = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = { username = "hulewicz"; inherit inputs; };
       modules = [
         ./hosts/hulewicz/configuration.nix
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.default
-	      inputs.sops-nix.nixosModules.sops
+	inputs.sops-nix.nixosModules.sops
       ];
     };
  };
