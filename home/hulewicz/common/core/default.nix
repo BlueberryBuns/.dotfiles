@@ -4,6 +4,7 @@
   pkgs,
   outputs,
   configLib,
+  configVars,
   ...
 }:
 {
@@ -13,7 +14,7 @@
 
   home = {
     username = lib.mkDefault "user";
-    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    homeDirectory = lib.mkDefault "/home/${configVars.username}";
     stateVersion = lib.mkDefault "24.05";
     sessionPath = [
       "$HOME/.local/bin"
