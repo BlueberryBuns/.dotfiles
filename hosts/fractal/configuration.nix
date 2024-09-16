@@ -11,8 +11,7 @@
       inputs.home-manager.nixosModules.default
     ];
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  programs.zsh.enable = true;
+  # nix.settings.experimental-features = ["nix-command" "flakes"];
   virtualisation.virtualbox.host.enable = true;
   nixpkgs.config.virtualbox.host.enableExtensionPack = true;
 
@@ -47,9 +46,6 @@
   };
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Ice";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs; };

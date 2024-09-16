@@ -18,7 +18,7 @@
 
 
   networking = {
-    hostName = "hulewicz";
+    hostName = "fractal";
     networkmanager.enable = true;
     enableIPv6 = false;
   };
