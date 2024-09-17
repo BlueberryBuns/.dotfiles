@@ -10,7 +10,8 @@
     ################ Optional Configs ################
     "hosts/common/optional/pipewire.nix"
     "hosts/common/optional/vlc.nix"
-
+    "hosts/common/optional/nvidia.nix"
+    "hosts/common/optional/stylix.nix"
 
     ################ Selected Users ################
     "hosts/common/users/hulewicz"
@@ -18,7 +19,7 @@
 
 
   networking = {
-    hostName = "hulewicz";
+    hostName = "fractal";
     networkmanager.enable = true;
     enableIPv6 = false;
   };
