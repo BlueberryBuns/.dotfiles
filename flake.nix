@@ -15,10 +15,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = 
+  { 
+    self,
+    nixpkgs,
+    ...
+  }@inputs:
   let
     inherit (self) outputs;
     inherit (nixpkgs) lib;
