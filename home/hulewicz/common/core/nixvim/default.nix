@@ -16,6 +16,7 @@
     ./neo-tree.nix
 
     # Bloated packages
+    ./git
     ./telescope
     ./treesitter
     ./lsp
