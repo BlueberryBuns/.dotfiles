@@ -12,7 +12,10 @@
     ./keymaps.nix
     ./bufferline.nix
     ./harpoon.nix
+    ./lualine.nix
+    ./neo-tree.nix
     ./telescope
+    ./treesitter
   ] ++ [ inputs.nixvim.homeManagerModules.nixvim ];
 
   programs.nixvim = {
