@@ -14,8 +14,11 @@
     ./harpoon.nix
     ./lualine.nix
     ./neo-tree.nix
+
+    # Bloated packages
     ./telescope
     ./treesitter
+    ./lsp
   ] ++ [ inputs.nixvim.homeManagerModules.nixvim ];
 
   programs.nixvim = {
