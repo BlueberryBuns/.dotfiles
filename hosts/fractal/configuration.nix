@@ -63,8 +63,8 @@
     elixir
     elixir-ls
     slack
-    dunst
-    (discord.override { withOpenASAR = true; })
+# dunst
+#   (discord.override { withOpenASAR = true; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

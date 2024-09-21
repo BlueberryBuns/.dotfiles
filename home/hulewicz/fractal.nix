@@ -8,6 +8,8 @@
     common/optional/media.nix
     common/optional/firefox.nix
     common/optional/tools.nix
+    common/optional/discord.nix
+    common/optional/mako.nix
   ];
  
   programs = {
