@@ -5,7 +5,6 @@
   # I have decided to choose mako
   home.packages = builtins.attrValues {
     inherit (pkgs)
-        discord
         vesktop;
   }; 
 }
