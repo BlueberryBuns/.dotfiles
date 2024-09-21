@@ -20,21 +20,20 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "pl";
-    variant = "";
-  };
+  # services.xserver.xkb = {
+  #  layout = "pl";
+  #  variant = "";
+  # };
 
   # Configure console keymap
-  console.keyMap = "pl2";
+  # console.keyMap = "pl2";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -63,8 +62,6 @@
     elixir
     elixir-ls
     slack
-# dunst
-#   (discord.override { withOpenASAR = true; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
