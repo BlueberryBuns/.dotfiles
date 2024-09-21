@@ -15,7 +15,7 @@
   users.users.hulewicz = {
     hashedPasswordFile = config.sops.secrets."hulewicz/user-password".path;
     isNormalUser = true;
-    description = "A very good boy";
+    description = "hulewicz";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
   };

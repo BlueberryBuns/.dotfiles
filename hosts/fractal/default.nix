@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./configuration.nix
+    ./hardware-configuration.nix
   ] ++ ( map configLib.relativeToRoot [
     ################ Required Configs ################
     "hosts/common/core"
@@ -13,10 +13,25 @@
     "hosts/common/optional/nvidia.nix"
     "hosts/common/optional/stylix.nix"
 
+    ################ Development Tools #################
+    # I was too tired to play around with these, they will be split later
+    "hosts/common/dev"
+
     ################ Selected Users ################
     "hosts/common/users/hulewicz"
   ]);
 
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    xkb  = {
+      layout = "pl";
+      variant = "";
+    };
+  };
+
+  console.keyMap = "pl2";
 
   networking = {
     hostName = "fractal";
