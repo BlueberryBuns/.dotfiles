@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./configuration.nix
+    ./hardware-configuration.nix
   ] ++ ( map configLib.relativeToRoot [
     ################ Required Configs ################
     "hosts/common/core"
@@ -12,6 +12,10 @@
     "hosts/common/optional/vlc.nix"
     "hosts/common/optional/nvidia.nix"
     "hosts/common/optional/stylix.nix"
+
+    ################ Development Tools #################
+    # I was too tired to play around with these, they will be split later
+    "hosts/common/dev"
 
     ################ Selected Users ################
     "hosts/common/users/hulewicz"
