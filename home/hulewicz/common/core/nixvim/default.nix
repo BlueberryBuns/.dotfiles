@@ -9,10 +9,19 @@
   programs.nixvim.globals.mapleader = " ";
   imports = [
     ./colorschemes.nix
+    ./cmp.nix
     ./keymaps.nix
     ./bufferline.nix
     ./harpoon.nix
+    ./lualine.nix
+    ./neo-tree.nix
+    ./luasnip.nix
+
+    # Bloated packages
+    ./git
     ./telescope
+    ./treesitter
+    ./lsp
   ] ++ [ inputs.nixvim.homeManagerModules.nixvim ];
 
   programs.nixvim = {

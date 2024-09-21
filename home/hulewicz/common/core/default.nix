@@ -4,6 +4,7 @@
   imports = [
     ./bash.nix
     ./bat.nix
+    ./fonts.nix
     ./kitty.nix
     ./zoxide.nix
     ./zsh.nix
