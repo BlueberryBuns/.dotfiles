@@ -33,10 +33,19 @@
 
   console.keyMap = "pl2";
 
+  virtualisation.docker.enable = true;
+
   networking = {
     hostName = "fractal";
     networkmanager.enable = true;
     enableIPv6 = false;
+  };
+
+  virtualisation.virtualbox = {
+    host.enable = true;
+    host.enableExtensionPack = true;
+    guest.enable = true;
+    guest.draganddrop = true;
   };
 
   # Bootloader.
