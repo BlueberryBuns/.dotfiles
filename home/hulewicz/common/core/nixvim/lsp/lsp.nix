@@ -9,7 +9,7 @@
         html = {
           enable = true;
         };
-        lua-ls = {
+        lua_ls = {
           enable = true;
         };
         marksman = {
@@ -25,9 +25,6 @@
           enable = true;
         };
         yamlls = {
-          enable = true;
-        };
-        ruff-lsp = {
           enable = true;
         };
         ruff = {

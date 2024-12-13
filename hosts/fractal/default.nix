@@ -45,7 +45,7 @@
     host.enable = true;
     host.enableExtensionPack = true;
     guest.enable = true;
-    guest.draganddrop = true;
+    guest.dragAndDrop = true;
   };
 
   # Bootloader.
