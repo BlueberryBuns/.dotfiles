@@ -16,6 +16,7 @@
     ./lualine.nix
     ./neo-tree.nix
     ./luasnip.nix
+    ./web-devicons.nix
 
     # Bloated packages
     ./git
@@ -116,4 +117,3 @@
     };
   };
 }
-
