@@ -10,6 +10,7 @@
     common/optional/tools.nix
     common/optional/discord.nix
     common/optional/mako.nix
+    common/optional/proton.nix
   ];
  
   programs = {

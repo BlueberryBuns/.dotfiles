@@ -8,9 +8,11 @@
     "hosts/common/core"
 
     ################ Optional Configs ################
+    "hosts/common/optional/bottles.nix"
     "hosts/common/optional/pipewire.nix"
     "hosts/common/optional/vlc.nix"
     "hosts/common/optional/nvidia.nix"
+    "hosts/common/optional/steam.nix"
     "hosts/common/optional/stylix.nix"
 
     ################ Development Tools #################
