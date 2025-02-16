@@ -56,5 +56,9 @@
         inputs.sops-nix.nixosModules.sops
       ];
     };
- };
+    
+    devShells.${system} = {
+        "go-project" = import (configLib.relativeToRoot "shells/go-project.nix") { inherit pkgs; };
+    };
+  };
 }
