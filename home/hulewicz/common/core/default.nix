@@ -1,6 +1,12 @@
-{config, lib, pkgs, outputs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  outputs,
+  ...
+}:
 
-{ 
+{
   imports = [
     ./bash.nix
     ./bat.nix
@@ -30,7 +36,7 @@
 
   stylix.targets.vim.enable = false;
   stylix.targets.nixvim.enable = false;
-  
+
   home.packages = builtins.attrValues {
     inherit (pkgs)
 
@@ -90,4 +96,4 @@
   programs = {
     home-manager.enable = true;
   };
-}	
+}

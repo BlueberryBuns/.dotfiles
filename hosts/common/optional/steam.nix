@@ -1,12 +1,12 @@
 { pkgs, ... }:
 
 {
-  programs ={
+  programs = {
     steam = {
-        enable = true;
-        gamescopeSession.enable = true;
+      enable = true;
+      gamescopeSession.enable = true;
     };
-    gamemode.enable = true; 
+    gamemode.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ mangohud ];

@@ -3,7 +3,7 @@
   self,
   pkgs,
   ...
-}: 
+}:
 
 {
   programs.nixvim.globals.mapleader = " ";
@@ -113,7 +113,7 @@
     };
 
     extraPlugins = builtins.attrValues {
-      
+
     };
   };
 }

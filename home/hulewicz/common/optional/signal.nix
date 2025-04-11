@@ -2,6 +2,7 @@
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      signal-desktop;
+      signal-desktop
+      ;
   };
 }

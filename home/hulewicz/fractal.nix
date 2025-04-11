@@ -12,7 +12,7 @@
     common/optional/mako.nix
     common/optional/proton.nix
   ];
- 
+
   programs = {
     home-manager.enable = true;
   };
@@ -44,7 +44,7 @@
     history.share = true;
 
     plugins = [
- 
+
     ];
 
     initExtra = ''
@@ -77,10 +77,10 @@
   programs.oh-my-posh = {
     enable = true;
     settings = {
-    version = 2;
-    final_space = true;
-    console_title_template = "{{ .Shell }} in {{ .Folder }}";
-    blocks = [
+      version = 2;
+      final_space = true;
+      console_title_template = "{{ .Shell }} in {{ .Folder }}";
+      blocks = [
         {
           type = "prompt";
           alignment = "left";

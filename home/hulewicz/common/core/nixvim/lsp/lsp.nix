@@ -91,9 +91,9 @@
           };
         };
       };
-    }; 
+    };
   };
-  
+
   programs.nixvim.extraConfigLua = ''
     local _border = "rounded"
 

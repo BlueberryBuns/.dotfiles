@@ -3,7 +3,8 @@
   programs.nixvim.plugins.luasnip = {
     enable = true;
 
-    settings = {  # Soon to be replaced by settings
+    settings = {
+      # Soon to be replaced by settings
       enable_autosnippets = true;
       store_selection_keys = "<Tab>";
     };

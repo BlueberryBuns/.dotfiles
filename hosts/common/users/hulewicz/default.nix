@@ -16,7 +16,11 @@
     hashedPasswordFile = config.sops.secrets."hulewicz/user-password".path;
     isNormalUser = true;
     description = "hulewicz";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
   };
 
